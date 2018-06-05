@@ -1,1 +1,17 @@
 <h1>products users site</h1>
+<div class="container">
+  <div class="row">
+    <% @products.each do |product| %>
+      <div class="col-sm-6 col-md-3">
+        <div class="product-item">
+          <%= image_tag product.image ,width:'150px'%>
+          <div class="caption">
+            <h3><%= link_to product.name, product_path(product)%></h3>
+            <p><%= number_to_currency(product.price)%></p>
+            <p><%= truncate(product.description, length:80)%></p>
+          </div>
+        </div>
+      </div>
+    <% end %>
+  </div>
+</div>
